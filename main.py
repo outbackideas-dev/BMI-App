@@ -1,10 +1,8 @@
 name = input("What is your name? ")
-height = float(input("What is your height in meters? "))
-weight = int(input("What is your weight in KG? "))
+height_m = float(input("What is your height in meters? "))
+weight_kg = float(input("What is your weight in KG? "))
 
-KG = weight
-M = height * height
+height_squared = height_m * height_m
+bmi = weight_kg / height_squared
 
-total_BMI = KG / M
-
-print(name, "Your BMI is", total_BMI)
+print(name, "Your BMI is", f"{bmi:.2f}")
