@@ -29,5 +29,14 @@ class BMITestCase(unittest.TestCase):
 
         self.assertEqual(stdout.getvalue(), "Height must be greater than 0.\n")
 
+    def test_main_prints_error_for_non_numeric_height(self):
+        with patch("builtins.input", side_effect=["Alice", "abc", "72.5"]), patch(
+            "sys.stdout", new_callable=io.StringIO
+        ) as stdout:
+            main.main()
+
+        self.assertEqual(stdout.getvalue(), "Height and weight must be numeric values.\n")
+
+
 if __name__ == "__main__":
     unittest.main()

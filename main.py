@@ -8,13 +8,16 @@ def calculate_bmi(height_m, weight_kg):
 
 def main():
     name = input("What is your name? ")
-    height_m = float(input("What is your height in meters? "))
-    weight_kg = float(input("What is your weight in KG? "))
 
     try:
+        height_m = float(input("What is your height in meters? "))
+        weight_kg = float(input("What is your weight in KG? "))
         bmi = calculate_bmi(height_m, weight_kg)
     except ValueError as error:
-        print(error)
+        if str(error).startswith("could not convert string to float"):
+            print("Height and weight must be numeric values.")
+        else:
+            print(error)
         return
 
     print(name, "Your BMI is", f"{bmi:.2f}")
