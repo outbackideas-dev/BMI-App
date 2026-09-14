@@ -11,7 +11,7 @@ def main():
 
     try:
         height_m = float(input("What is your height in meters? "))
-        weight_kg = float(input("What is your weight in KG? "))
+        weight_kg = float(input("What is your weight in kg? "))
     except ValueError:
         print("Height and weight must be numeric values.")
         return
